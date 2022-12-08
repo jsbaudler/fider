@@ -122,6 +122,11 @@ func OAuthToken() web.HandlerFunc {
 					},
 				}
 
+				// limit user creation to users with gaussy.com
+				if !strings.HasSuffix(user.Email, "@gaussy.com") {
+					return c.Redirect("/not-invited")
+				}
+
 				if err = bus.Dispatch(c, &cmd.RegisterUser{User: user}); err != nil {
 					return c.Failure(err)
 				}
