@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"net/http"
+	"os"
 	"time"
 
 	"github.com/getfider/fider/app/handlers"
@@ -33,12 +34,16 @@ func routes(r *web.Engine) *web.Engine {
 		return next(c)
 	})
 
-	r.Use(middlewares.Secure())
+	if os.Getenv("ENVIRONMENT") != "dev" {
+		r.Use(middlewares.Secure())
+	}
 	r.Use(middlewares.Compress())
 
 	assets := r.Group()
 	{
-		assets.Use(middlewares.CORS())
+		if os.Getenv("ENVIRONMENT") != "dev" {
+			assets.Use(middlewares.CORS())
+		}
 		assets.Use(middlewares.ClientCache(365 * 24 * time.Hour))
 		assets.Get("/static/favicon", handlers.Favicon())
 		assets.Static("/assets/*filepath", "dist")
