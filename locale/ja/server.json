@@ -48,5 +48,15 @@
   "email.change_status.duplicate": "<strong>{title} ({postLink})</strong>は<strong>重複</strong>として<strong>{duplicate}</strong>に閉じられました。",
   "email.change_status.others": "<strong>{title} ({postLink})</strong>のステータスが<strong>{status}</strong>に変更されました。",
   "email.delete_post.text": "<strong>{title}</strong>が<strong>削除</strong>されました。",
-  "email.new_comment.text": "<strong>{userName}</strong>が<strong>{title} ({postLink})</strong>に新しいコメントを投稿しました。"
+  "email.new_comment.text": "<strong>{userName}</strong>が<strong>{title} ({postLink})</strong>に新しいコメントを投稿しました。",
+  "email.new_post.text": "<strong>{userName}</strong> は新しい投稿 <strong>{title} ({postLink})</strong> を作成しました。",
+  "email.signin_email.subject": "{siteName} にサインイン",
+  "email.signin_email.text": "サインインリンクを送信するように頼まれましたので、ここにあります。",
+  "email.signin_email.confirmation": "以下のリンクをクリックして <strong>{siteName}</strong> にサインインします。",
+  "email.signup_email.subject": "あなたの新しい Fider サイト",
+  "email.signup_email.text": "あなたはあなたの Fider サイトをアクティブにするための 1 手順を残しています。",
+  "email.signup_email.confirmation": "以下のリンクを使用して、あなたの電子メールアドレスを確認してアクティベーションプロセスを完了することができます。",
+  "email.footer.subscription_notice": "この投稿に購読しているため、このメールを受信しています。 {view}、{unsubscribe}、または{change}することができます。",
+  "email.footer.subscription_notice2": "この投稿に購読しているため、このメールを受信しています。 {change}することができます。",
+  "email.footer.subscription_notice3": "この投稿に購読しているため、このメールを受信しています。 {view} または{change}することができます。"
 }
