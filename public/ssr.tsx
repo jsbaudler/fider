@@ -44,7 +44,9 @@ const pages: { [key: string]: any } = {
 
 function ssrRender(url: string, args: any) {
   const fider = Fider.initialize({ ...args })
-  const i18n = activateI18NSync(fider.currentLocale, messages[fider.currentLocale].messages)
+  const currentLocale = localStorage.getItem("locale") || fider.currentLocale
+  const currentMessages = messages[localStorage.getItem("locale") || fider.currentLocale].messages
+  const i18n = activateI18NSync(currentLocale, currentMessages)
   const component = pages[fider.session.page]?.default
   if (!component) {
     throw new Error(`Page not found: ${fider.session.page}`)
