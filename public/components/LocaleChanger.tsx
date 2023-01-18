@@ -1,7 +1,7 @@
-import { useFider } from "@fider/hooks"
-import { Select } from "@fider/components"
-import { activateI18N } from "@fider/services"
 import React, { useState } from "react"
+
+import { useFider } from "@fider/hooks"
+import { activateI18N } from "@fider/services"
 
 import locales from "@locale/locales"
 
@@ -15,19 +15,32 @@ const LocaleChanger = () => {
   }
 
   return (
-    <Select
-      field="locale"
+    <select
+      className="c-select mr-2"
       defaultValue={locale}
-      options={Object.entries(locales).map(([k, v]) => ({
-        value: k,
-        label: v.text,
-      }))}
-      onChange={(o) => {
-        setLocale(o?.value || locale)
-        activateI18N(o?.value || locale)
-        setLocalStorage(o?.value || locale)
+      style={{
+        width: "auto",
+        marginLeft: "auto",
       }}
-    ></Select>
+      onChange={(o) => {
+        setLocale(o.target.value || locale)
+        activateI18N(o.target.value || locale)
+        setLocalStorage(o.target.value || locale)
+      }}
+    >
+      {Object.entries(locales)
+        .map(([k, v]) => ({
+          value: k,
+          label: v.text,
+        }))
+        .map(({ value, label }) => {
+          return (
+            <option key={value} value={value}>
+              {label}
+            </option>
+          )
+        })}
+    </select>
   )
 }
 
