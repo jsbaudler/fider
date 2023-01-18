@@ -3,6 +3,7 @@ import { SignInModal, TenantLogo, NotificationIndicator, UserMenu } from "@fider
 import { useFider } from "@fider/hooks"
 import { HStack } from "./layout"
 import { Trans } from "@lingui/macro"
+import LocaleChanger from "./LocaleChanger"
 
 export const Header = () => {
   const fider = useFider()
@@ -25,16 +26,21 @@ export const Header = () => {
               <TenantLogo size={100} />
               <h1 className="text-title">{fider.session.tenant.name}</h1>
             </a>
+
             {fider.session.isAuthenticated && (
               <HStack spacing={2}>
+                <LocaleChanger />
                 <NotificationIndicator />
                 <UserMenu />
               </HStack>
             )}
             {!fider.session.isAuthenticated && (
-              <a href="#" className="uppercase text-sm" onClick={showModal}>
-                <Trans id="action.signin">Sign in</Trans>
-              </a>
+              <>
+                <LocaleChanger />
+                <a href="#" className="uppercase text-sm" onClick={showModal}>
+                  <Trans id="action.signin">Sign in</Trans>
+                </a>
+              </>
             )}
           </HStack>
         </div>

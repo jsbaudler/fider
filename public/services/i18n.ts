@@ -1,5 +1,5 @@
 import { i18n, I18n } from "@lingui/core"
-import { en, pt, fr, el, de, se, pl, ru, sk, nl, es, tr } from "make-plural/plurals"
+import { en, pt, fr, el, de, se, pl, ru, sk, nl, es, tr, ja } from "make-plural/plurals"
 
 export function activateI18NSync(locale: string, messages?: any): I18n {
   i18n.loadLocaleData("en", { plurals: en })
@@ -14,6 +14,7 @@ export function activateI18NSync(locale: string, messages?: any): I18n {
   i18n.loadLocaleData("ru", { plurals: ru })
   i18n.loadLocaleData("sk", { plurals: sk })
   i18n.loadLocaleData("tr", { plurals: tr })
+  i18n.loadLocaleData("ja", { plurals: ja })
   i18n.load(locale, messages)
   i18n.activate(locale)
   return i18n
