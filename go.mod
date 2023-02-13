@@ -1,8 +1,8 @@
-// +heroku goVersion go1.18
+// +heroku goVersion go1.19
 
 module github.com/getfider/fider
 
-go 1.18
+go 1.19
 
 require (
 	github.com/aws/aws-sdk-go v1.44.177
@@ -62,7 +62,7 @@ require (
 	github.com/disintegration/imaging v1.6.2 // indirect
 	github.com/esimonov/ifshort v1.0.4 // indirect
 	github.com/ettle/strcase v0.1.1 // indirect
-	github.com/fatih/color v1.13.0 // indirect
+	github.com/fatih/color v1.14.1 // indirect
 	github.com/fatih/structtag v1.2.0 // indirect
 	github.com/firefart/nonamedreturns v1.0.4 // indirect
 	github.com/fsnotify/fsnotify v1.6.0 // indirect
